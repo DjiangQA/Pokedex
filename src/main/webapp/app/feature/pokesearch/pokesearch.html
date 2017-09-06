@@ -1,0 +1,25 @@
+<div ng-controller= "SearchController as ctrl">
+<h2>Available Pokemons</h2>
+    <div class="form-group">
+        <label Pokemonfilter="usr">Filter:</label>
+        <input type="text" id="Pokemonfilter" class="form-control" ng-model="PokemonFilter.name" || ng-model="PokemonFilter.id">
+    </div>
+<br/><br/>
+<table class="table table-striped">
+    <tr>
+        <th>Pokemon id:</th>
+        <th>Pokemon name:</th>
+        <th>Pokemon type:</th>
+        <th>Pokemon more info:</th>
+
+    </tr>
+    <tr ng-repeat="Pokemon in ctrl.pokemons.results  | filter:PokemonFilter | orderBy:ctrl.sortBy:ctrl.reverse">
+        <td>{{Pokemon.id}}</td>
+        <td>{{Pokemon.name}}</td>
+        <td>{{Pokemon.type}}</td>
+        <td>{{Pokemon.url}}</td>
+    </tr>
+</table>
+
+<span>Total Pokemons: {{ctrl.pokemons.count}}</span>
+</div>
